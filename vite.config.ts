@@ -7,10 +7,10 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        main: "index.html",
-        crew: "crew.html",
-        technology: "technology.html",
-        destination: "destination.html",
+        main: "./index.html",
+        crew: "./crew.html",
+        technology: "./technology.html",
+        destination: "./destination.html",
       },
     },
   },
