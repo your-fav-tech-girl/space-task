@@ -45,8 +45,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleEl = document.getElementById("crew-title") as HTMLElement;
   const descEl = document.getElementById("crew-description") as HTMLElement;
   const nameEl = document.getElementById("crew-name") as HTMLElement;
+  const menuToggle = document.getElementById(
+    "menu-toggle"
+  ) as HTMLButtonElement;
+  const menuClose = document.getElementById("menu-close") as HTMLButtonElement;
+  const navLinks = document.getElementById("nav-links") as HTMLElement;
 
   const dots = document.querySelectorAll<HTMLButtonElement>(".crew-dot");
+
+  let isMenuOpen = false;
+
+  // Function to open mobile menu
+  function openMenu() {
+    isMenuOpen = true;
+    navLinks.classList.add("active"); // show nav
+    menuToggle.classList.add("hidden"); // hide hamburger
+  }
+
+  // Function to close mobile menu
+  function closeMenu() {
+    isMenuOpen = false;
+    navLinks.classList.remove("active"); // hide nav
+    menuClose.classList.remove("hidden"); // show hamburger
+  }
+
+  // Hamburger click
+  menuToggle.addEventListener("click", openMenu);
+
+  // Close button click
+  menuClose.addEventListener("click", closeMenu);
+
+  // Optional: close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+
+    if (
+      !menuToggle.contains(target) &&
+      !navLinks.contains(target) &&
+      isMenuOpen
+    ) {
+      closeMenu();
+    }
+  });
 
   const updateCrew = (key: string) => {
     const data = crew[key];
@@ -58,13 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
     descEl.innerHTML = data.description;
     nameEl.innerHTML = data.name;
 
-    // Reset all dots to gray
     dots.forEach((d) => {
       d.classList.remove("bg-white");
       d.classList.add("bg-gray-500");
     });
 
-    // Highlight active dot
     const activeDot = Array.from(dots).find((d) => d.dataset.crew === key);
     if (activeDot) {
       activeDot.classList.remove("bg-gray-500");
@@ -72,10 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Default load
   updateCrew("douglas");
 
-  // Add click events
   dots.forEach((dot) => {
     dot.addEventListener("click", () => {
       const key = dot.dataset.crew;

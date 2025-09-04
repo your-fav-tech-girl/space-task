@@ -50,12 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Function to update content + active number
   function setActiveTech(key: string, activeEl: HTMLElement) {
-    // Reset all numbers
     numbers.forEach((n) => n.classList.remove("bg-white", "text-black"));
 
-    // Highlight current number
     activeEl.classList.add("bg-white", "text-black");
 
     // Update content
@@ -66,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     imgEl.src = data.image;
   }
 
-  // ✅ Show "launch" on page load
   window.addEventListener("DOMContentLoaded", () => {
     const first = document.querySelector<HTMLElement>('[data-tech="launch"]');
     if (first) {
