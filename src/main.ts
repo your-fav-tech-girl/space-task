@@ -64,14 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function openMenu() {
     isMenuOpen = true;
     navLinks.classList.add("active"); // show nav
-    menuToggle.classList.add("hidden"); // hide hamburger
+    menuToggle.classList.add("hidden"); // hide
   }
 
   // Function to close mobile menu
   function closeMenu() {
     isMenuOpen = false;
     navLinks.classList.remove("active"); // hide nav
-    menuClose.classList.remove("hidden"); // show hamburger
+    menuClose.classList.remove("hidden"); // show
   }
 
   // Hamburger click
@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close button click
   menuClose.addEventListener("click", closeMenu);
 
-  // Optional: close menu when clicking outside
   document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 

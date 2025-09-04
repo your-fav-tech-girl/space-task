@@ -59,14 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function openMenu() {
     isMenuOpen = true;
     navLinks.classList.add("active"); // show nav
-    menuToggle.classList.add("hidden"); // hide hamburger
+    menuToggle.classList.add("hidden"); // hide
   }
 
   // Function to close mobile menu
   function closeMenu() {
     isMenuOpen = false;
-    navLinks.classList.remove("active"); // hide nav
-    menuClose.classList.remove("hidden"); // show hamburger
+    navLinks.classList.remove("active");
+    menuClose.classList.remove("hidden");
   }
 
   // Hamburger click
@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close button click
   menuClose.addEventListener("click", closeMenu);
 
-  // Optional: close menu when clicking outside
   document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
@@ -92,11 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = crew[key];
     if (!data) return;
 
-    imgEl.src = data.image;
-    imgEl.alt = data.title;
-    titleEl.textContent = data.title;
-    descEl.innerHTML = data.description;
-    nameEl.innerHTML = data.name;
+    if (imgEl) {
+      imgEl.src = data.image;
+      imgEl.alt = data.title;
+    }
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.innerHTML = data.description;
+    if (nameEl) nameEl.innerHTML = data.name;
 
     dots.forEach((d) => {
       d.classList.remove("bg-white");
@@ -110,8 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // Call updateCrew
   updateCrew("douglas");
 
+  // Attach dot click listeners
   dots.forEach((dot) => {
     dot.addEventListener("click", () => {
       const key = dot.dataset.crew;
