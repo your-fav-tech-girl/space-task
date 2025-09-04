@@ -10,7 +10,7 @@ export default defineConfig({
         main: "./index.html",
         crew: "./crew.html",
         technology: "./technology.html",
-        destination: "./destination.html",
+        destination: "./Destination.html",
       },
     },
   },
