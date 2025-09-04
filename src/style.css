@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Bellefair", serif;
+  --font-heading: "Bellefair", serif;
+  --font-body: "Bellefair", serif;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Vite + TS</title>
+  </head>
+  <body
+    class="min-h-screen bg-cover bg-no-repeat bg-center bg-[url('/technology/background-technology-mobile.jpg')] sm:bg-[url('/technology/background-technology-tablet.jpg')] lg:bg-[url('/technology/background-technology-desktop.jpg')]"
+  >
+    <header>
+      <div
+        class="flex items-center justify-between p-5 border-l border-gray-600"
+      >
+        <!-- Logo -->
+        <div>
+          <img src="/shared/logo.svg" alt="Logo" />
+        </div>
+
+        <!-- Line image -->
+        <div>
+          <img src="./src/assets/shared/line.png" alt="Divider" />
+        </div>
+        <!-- Hamburger (mobile only) -->
+        <button id="menu-toggle" class="sm:hidden focus:outline-none">
+          <img
+            id="menu-icon"
+            src="/src/assets/shared/icon-hamburger.svg"
+            alt="Menu"
+            class="w-8 h-8"
+          />
+        </button>
+
+        <!-- Nav Links -->
+        <nav
+          id="nav-links"
+          class="fixed top-0 right-0 flex flex-col items-center justify-center text-center uppercase text-white bg-gradient-to-r from-[#0B0D17] via-[#61657d] w-full h-screen space-y-6 px-8 z-40 sm:flex sm:flex-row sm:items-center sm:justify-center sm:space-x-8 sm:space-y-0 sm:h-auto sm:w-[700px] sm:bg-transparent sm:px-16 sm:py-8 sm:relative"
+        >
+          <button
+            id="menu-close"
+            class="absolute top-6 right-6 sm:hidden focus:outline-none z-50"
+          >
+            <img
+              src="/src/assets/shared/icon-close.svg"
+              alt="Close"
+              class="w-8 h-8"
+            />
+          </button>
+          <a
+            href="/index.html"
+            class="pb-2 border-b-2 border-transparent hover:border-white"
+          >
+            00 Home
+          </a>
+          <a
+            href="/Destination.html"
+            class="pb-2 border-b-2 border-transparent hover:border-white"
+          >
+            01 Destination
+          </a>
+          <a
+            href="/crew.html"
+            class="pb-2 border-b-2 border-transparent hover:border-white"
+          >
+            02 Crew
+          </a>
+          <a
+            href="/technology.html"
+            class="pb-2 border-b-2 border-transparent hover:border-white"
+          >
+            03 Technology
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="px-4 sm:px-6 lg:px-16 mt-12">
+      <h1 class="m-16 text-gray-200 text-3xl text-center lg:text-left">
+        <span class="text-gray-400">03</span> SPACE LAUNCH 101
+      </h1>
+
+      <div
+        class="text-white mt-10 flex flex-col lg:flex-row justify-around items-center lg:items-start gap-10 lg:gap-0"
+      >
+        <!-- Text content -->
+        <div class="px-4 sm:px-6 lg:px-16 mt-12">
+  <div class="flex flex-col lg:flex-row justify-between items-center gap-8">
+
+    <!-- Numbers column -->
+   <div class="flex flex-row lg:flex-col space-x-4 lg:space-x-0 lg:space-y-6 text-center lg:text-left mb-6 lg:mb-0">
+  <p class="text-2xl lg:text-3xl font-bold text-gray-400 rounded-full w-12 h-12 flex items-center justify-center cursor-pointer" data-tech="launch">1</p>
+  <p class="text-2xl lg:text-3xl font-bold text-gray-400 rounded-full w-12 h-12 flex items-center justify-center cursor-pointer" data-tech="space">2</p>
+<p class="text-2xl lg:text-3xl font-bold text-gray-400 rounded-full w-12 h-12 flex items-center justify-center cursor-pointer" data-tech="capsule">3</p>
+</div>
+
+    <!-- Text content -->
+   
+<div class="flex flex-col space-y-6 text-center lg:text-left max-w-lg lg:max-w-md">
+  <h1 id="tech-title" class="mt-8 text-3xl text-gray-400"></h1>
+  <h2 id="tech-subtitle" class="uppercase text-3xl"></h2>
+  <p id="tech-description" class="text-base sm:text-lg leading-relaxed"></p>
+</div>
+
+    <!-- Image -->
+    <div class="flex justify-center items-center w-full lg:w-auto">
+  <img id="tech-image"
+    src="/technology/image-launch-vehicle-portrait.jpg"
+    class="max-h-[300px] sm:max-h-[400px] lg:max-h-[500px] object-contain"
+  />
+</div>
+
+  </div>
+</div>
+
+
+    <div id="app"></div>
+    <script type="module" src="/src/technology.ts"></script>
+  </body>
+</html>
