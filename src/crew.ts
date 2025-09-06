@@ -122,3 +122,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById(
+    "menu-toggle"
+  ) as HTMLButtonElement;
+  const menuClose = document.getElementById("menu-close") as HTMLButtonElement;
+  const navLinks = document.getElementById("nav-links") as HTMLElement;
+  const links = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+
+  if (!menuToggle || !menuClose || !navLinks) return;
+
+  // Open menu
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.remove("hidden");
+    menuToggle.classList.add("hidden");
+  });
+
+  // Close menu
+  menuClose.addEventListener("click", () => {
+    navLinks.classList.add("hidden");
+    menuToggle.classList.remove("hidden");
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth < 640) {
+        links.forEach((el) => {
+          el.classList.remove("border-r-2", "border-white");
+          el.classList.add("border-transparent");
+        });
+        link.classList.remove("border-transparent");
+        link.classList.add("border-r-2", "border-white");
+      } else {
+        links.forEach((el) => {
+          el.classList.remove("border-b-2", "border-white");
+          el.classList.add("border-transparent");
+        });
+        link.classList.remove("border-transparent");
+        link.classList.add("border-b-2", "border-white");
+      }
+    });
+  });
+});

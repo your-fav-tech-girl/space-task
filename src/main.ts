@@ -51,46 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const descEl = document.getElementById("planet-description") as HTMLElement;
   const distanceEl = document.getElementById("planet-distance") as HTMLElement;
   const travelEl = document.getElementById("planet-travel") as HTMLElement;
-  const menuToggle = document.getElementById(
-    "menu-toggle"
-  ) as HTMLButtonElement;
-  const menuClose = document.getElementById("menu-close") as HTMLButtonElement;
-  const navLinks = document.getElementById("nav-links") as HTMLElement;
   const tabs = document.querySelectorAll<HTMLLIElement>("#planet-tabs li");
-
-  let isMenuOpen = false;
-
-  // Function to open mobile menu
-  function openMenu() {
-    isMenuOpen = true;
-    navLinks.classList.add("active"); // show nav
-    menuToggle.classList.add("hidden"); // hide
-  }
-
-  // Function to close mobile menu
-  function closeMenu() {
-    isMenuOpen = false;
-    navLinks.classList.remove("active"); // hide nav
-    menuClose.classList.remove("hidden"); // show
-  }
-
-  // Hamburger click
-  menuToggle.addEventListener("click", openMenu);
-
-  // Close button click
-  menuClose.addEventListener("click", closeMenu);
-
-  document.addEventListener("click", (e) => {
-    const target = e.target as HTMLElement;
-
-    if (
-      !menuToggle.contains(target) &&
-      !navLinks.contains(target) &&
-      isMenuOpen
-    ) {
-      closeMenu();
-    }
-  });
 
   const updatePlanet = (key: string) => {
     const data = planets[key];
@@ -113,6 +74,49 @@ document.addEventListener("DOMContentLoaded", () => {
     tab.addEventListener("click", () => {
       const key = tab.dataset.planet;
       if (key) updatePlanet(key);
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById(
+    "menu-toggle"
+  ) as HTMLButtonElement;
+  const menuClose = document.getElementById("menu-close") as HTMLButtonElement;
+  const navLinks = document.getElementById("nav-links") as HTMLElement;
+  const links = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+
+  if (!menuToggle || !menuClose || !navLinks) return;
+
+  // Open menu
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.remove("hidden");
+    menuToggle.classList.add("hidden");
+  });
+
+  // Close menu
+  menuClose.addEventListener("click", () => {
+    navLinks.classList.add("hidden");
+    menuToggle.classList.remove("hidden");
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth < 640) {
+        links.forEach((el) => {
+          el.classList.remove("border-r-2", "border-white");
+          el.classList.add("border-transparent");
+        });
+        link.classList.remove("border-transparent");
+        link.classList.add("border-r-2", "border-white");
+      } else {
+        links.forEach((el) => {
+          el.classList.remove("border-b-2", "border-white");
+          el.classList.add("border-transparent");
+        });
+        link.classList.remove("border-transparent");
+        link.classList.add("border-b-2", "border-white");
+      }
     });
   });
 });

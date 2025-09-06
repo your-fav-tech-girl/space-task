@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap"
       rel="stylesheet"
     />
 
-    <title>Vite + TS</title>
+    <title>Space Tourism</title>
   </head>
   <body
     class="min-h-screen bg-cover bg-no-repeat bg-center bg-[url('/crew/background-crew-mobile.jpg')] sm:bg-[url('/crew/background-crew-tablet.jpg')] lg:bg-[url('/crew/background-crew-desktop.jpg')]"
@@ -18,17 +18,15 @@
       <div
         class="flex items-center justify-between p-5 border-l border-gray-600"
       >
-        <!-- Logo -->
         <div>
           <img src="/shared/logo.svg" alt="Logo" />
         </div>
 
-        <!-- Line image -->
         <div>
           <img src="./src/assets/shared/line.png" alt="Divider" />
         </div>
 
-        <button id="menu-toggle" class="sm:hidden focus:outline-none z-50">
+        <button id="menu-toggle" class="sm:hidden focus:outline-none">
           <img
             id="menu-icon"
             src="/src/assets/shared/icon-hamburger.svg"
@@ -36,9 +34,10 @@
             class="w-8 h-8"
           />
         </button>
+
         <nav
           id="nav-links"
-          class="fixed top-0 right-0 flex flex-col items-center justify-center text-center uppercase text-white bg-gradient-to-r from-[#0B0D17] via-[#61657d] w-full h-screen space-y-6 px-8 z-40 sm:flex sm:flex-row sm:items-center sm:justify-center sm:space-x-8 sm:space-y-0 sm:h-auto sm:w-[700px] sm:bg-transparent sm:px-16 sm:py-8 sm:relative"
+          class="fixed top-0 right-0 flex flex-col items-center justify-center text-center uppercase text-white bg-[#0B0D1726] backdrop-blur-[80px] w-full h-screen space-y-6 px-8 z-40 sm:flex sm:flex-row sm:items-center sm:justify-center sm:space-x-8 sm:space-y-0 sm:h-auto sm:w-[700px] sm:px-16 sm:py-8 sm:relative"
         >
           <button
             id="menu-close"
@@ -52,25 +51,25 @@
           </button>
           <a
             href="/index.html"
-            class="pb-2 border-b-2 border-transparent hover:border-white"
+            class="nav-link flex flex-row items-center justify-between pr-6 border-r-2 border-transparent hover:border-white sm:flex-col sm:justify-center sm:pb-2 sm:border-b-2 sm:hover:border-white sm:border-r-0 space-x-16"
           >
             00 Home
           </a>
           <a
             href="/destination.html"
-            class="pb-2 border-b-2 border-transparent hover:border-white"
+            class="nav-link flex flex-row items-center justify-between pr-6 border-r-2 border-transparent hover:border-white sm:flex-col sm:justify-center sm:pb-2 sm:border-b-2 sm:hover:border-white sm:border-r-0"
           >
             01 Destination
           </a>
           <a
             href="/crew.html"
-            class="pb-2 border-b-2 border-transparent hover:border-white"
+            class="nav-link flex flex-row items-center justify-between pr-6 border-r-2 border-transparent hover:border-white sm:flex-col sm:justify-center sm:pb-2 sm:border-b-2 sm:hover:border-white sm:border-r-0"
           >
             02 Crew
           </a>
           <a
             href="/technology.html"
-            class="pb-2 border-b-2 border-transparent hover:border-white"
+            class="nav-link flex flex-row items-center justify-between pr-4 border-r-2 border-transparent hover:border-white sm:flex-col sm:justify-center sm:pb-2 sm:border-b-2 sm:hover:border-white sm:border-r-0"
           >
             03 Technology
           </a>
